@@ -16,7 +16,7 @@ final class Encrypter {
     /// The maximum size for the encrypted text
     private let maximumCipherSize = 4
     /// Special characters to be insert into the encrypted password
-    private let specialCharacteres = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"]
+    private let specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"]
 
     /// Main function to encrypt the input text
     /// - Parameter text: User input to be encrypted
@@ -29,8 +29,8 @@ final class Encrypter {
         let caesarCipher = caesarCipher(message: String(text.suffix(maximumCipherSize)),
                                         shift: textSize)
         let caesarCipherCapitalized = caesarCipher.lowercased().capitalizingFirstLetter()
-        let specialCharacterIndex = textSize % specialCharacteres.count
-        let specialCharacter = specialCharacteres[specialCharacterIndex]
+        let specialCharacterIndex = textSize % specialCharacters.count
+        let specialCharacter = specialCharacters[specialCharacterIndex]
         
         return initialNumber + caesarCipherCapitalized + specialCharacter + finalNumber
     }
